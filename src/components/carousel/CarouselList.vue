@@ -138,6 +138,7 @@ export default {
             return `width: ${this.itemWidth}px;`
         },
         transformStyle() {
+            if (this.delta < 30) return
             const translate = this.delta + 1 * (this.activeItem * this.itemWidth)
             const result = this.dragging ? -translate : -Math.abs(translate)
             return `transform: translateX(${result}px);`
